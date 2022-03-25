@@ -36,16 +36,6 @@ public:
 			return arr[topIndex--];
 		}
 	}
-	int getGrade(char c) {
-		switch (c) {
-		case '+':
-		case '-':
-			return 1;
-		case '*':
-		case '/':
-			return 2;
-		}
-	}
 	void calculate(char oper) {
 		int b = pop();
 		int a = pop();
