@@ -8,35 +8,35 @@ struct node {
 	node* next;
 };
 
-class DLinkedList {
+class Sequence {
 public:
-	DLinkedList() {
-		head = tail = new node;
-		head->next = tail;
-		tail->prev = head;
-		size = 0;
+	Sequence() {
+		header = trailer = new node;
+		header->next = trailer;
+		trailer->prev = header;
+		n = 0;
 	}
 	bool empty() {
-		return (size == 0);
+		return (n == 0);
 	}
 	void append(int data) {
 		node* newNode = new node;
 		newNode->data = data;
 
-		node* curNode = tail->prev;
+		node* curNode = trailer->prev;
 		newNode->prev = curNode;
-		newNode->next = tail;
+		newNode->next = trailer;
 		curNode->next = newNode;
-		tail->prev = newNode;
-		size++;
+		trailer->prev = newNode;
+		n++;
 		print();
 	}
 	int remove(int index) {
-		if (empty() || index < 0 || index >= size) {
+		if (empty() || index < 0 || index >= n) {
 			return -1;
 		}
 		else {
-			node* curNode = head->next;
+			node* curNode = header->next;
 			for (int i = 0; i < index; i++) {
 				curNode = curNode->next;
 			}
@@ -47,7 +47,7 @@ public:
 			nextNode->prev = preNode;
 			int data = curNode->data;
 			delete curNode;
-			size--;
+			n--;
 			return data;
 		}
 	}
@@ -56,8 +56,8 @@ public:
 			cout << "empty\n";
 		}
 		else {
-			node* curNode = head->next;
-			while (curNode != tail) {
+			node* curNode = header->next;
+			while (curNode != trailer) {
 				cout << curNode->data << " ";
 				curNode = curNode->next;
 			}
@@ -69,8 +69,8 @@ public:
 			cout << "empty\n";
 		}
 		else {
-			node* curNode = tail->prev;
-			while (curNode != head) {
+			node* curNode = trailer->prev;
+			while (curNode != header) {
 				cout << curNode->data << " ";
 				curNode = curNode->prev;
 			}
@@ -82,9 +82,9 @@ public:
 			cout << "empty\n";
 		}
 		else {
-			node* curNode = head->next;
+			node* curNode = header->next;
 			bool found = false;
-			while (curNode != tail) {
+			while (curNode != trailer) {
 				if (curNode->data == x) {
 					curNode->data = y;
 					found = true;
@@ -100,16 +100,16 @@ public:
 		}
 	}
 private:
-	node* head;
-	node* tail;
-	int size;
+	node* header;
+	node* trailer;
+	int n;
 };
 
 int main() {
 	int m;
 	cin >> m;
 
-	DLinkedList l = DLinkedList();
+	Sequence l = Sequence();
 	for (int i = 0; i < m; i++) {
 		string command;
 		cin >> command;

@@ -1,26 +1,26 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
+typedef int type;
 struct node {
-	int data;
+	type data;
 	node* prev;
 	node* next;
 };
-
 class Sequence {
 public:
 	Sequence() {
-		header = new node();
-		trailer = new node();
+		header = trailer = new node;
 		header->next = trailer;
 		trailer->prev = header;
 		n = 0;
 	}
-	bool empty() {
-		return (size() == 0);
-	}
 	int size() {
 		return n;
+	}
+	bool empty() {
+		return (n == 0);
 	}
 	node* begin() {
 		return header->next;
@@ -28,10 +28,10 @@ public:
 	node* end() {
 		return trailer;
 	}
-	void insert(node* pos, int data) {
+	void insert(node* pos, type data) {
 		node* newNode = new node();
 		newNode->data = data;
-		
+
 		node* nextNode = pos;
 		node* prevNode = nextNode->prev;
 
@@ -39,7 +39,6 @@ public:
 		newNode->prev = prevNode;
 		nextNode->prev = newNode;
 		prevNode->next = newNode;
-
 		n++;
 	}
 	void insertFront(int data) {

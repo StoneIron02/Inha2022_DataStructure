@@ -31,6 +31,18 @@
     <Filter Include="소스 파일\week6">
       <UniqueIdentifier>{04589162-0b27-4d80-9a4f-23d492d8ecdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\models">
+      <UniqueIdentifier>{c3bcbcaf-f523-41aa-9073-341a49462061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\models\Implement">
+      <UniqueIdentifier>{18af8b2e-fed7-4130-b14c-0de4605320c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\models\Linear Structure">
+      <UniqueIdentifier>{eddc4b19-3884-4275-a0ec-c9a7e4744606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\models\Non-Linear Structure">
+      <UniqueIdentifier>{3c8bc0fa-bdaa-4efd-a039-cece039fc46a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w1ex1.cpp">
@@ -131,6 +143,39 @@
     </ClCompile>
     <ClCompile Include="w6p4.cpp">
       <Filter>소스 파일\week6</Filter>
+    </ClCompile>
+    <ClCompile Include="Array.cpp">
+      <Filter>소스 파일\models\Implement</Filter>
+    </ClCompile>
+    <ClCompile Include="SLinkedList.cpp">
+      <Filter>소스 파일\models\Implement</Filter>
+    </ClCompile>
+    <ClCompile Include="DLinkedList.cpp">
+      <Filter>소스 파일\models\Implement</Filter>
+    </ClCompile>
+    <ClCompile Include="StackArray.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="StackList.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="QueueArray.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="QueueList.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceList.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceArray.cpp">
+      <Filter>소스 파일\models\Linear Structure</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -77,18 +77,26 @@ public:
 			cout << "\n";
 		}
 	}
-	void max() {
+	void update(int x, int y) {
 		if (empty()) {
 			cout << "empty\n";
 		}
 		else {
 			node* curNode = header->next;
-			int max = curNode->data;
+			bool found = false;
 			while (curNode != trailer) {
-				(curNode->data > max) ? max = curNode->data : max = max;
+				if (curNode->data == x) {
+					curNode->data = y;
+					found = true;
+				}
 				curNode = curNode->next;
 			}
-			cout << max << "\n";
+			if (found) {
+				print();
+			}
+			else {
+				cout << "Not found\n";
+			}
 		}
 	}
 private:
@@ -101,28 +109,30 @@ int main() {
 	int m;
 	cin >> m;
 
-	Sequence l = Sequence();
+	Sequence list = Sequence();
 	for (int i = 0; i < m; i++) {
 		string command;
 		cin >> command;
 		if (command == "Append") {
 			int x;
 			cin >> x;
-			l.append(x);
+			list.append(x);
 		}
 		else if (command == "Delete") {
 			int i;
 			cin >> i;
-			cout << l.remove(i) << "\n";
+			cout << list.remove(i) << "\n";
 		}
 		else if (command == "Print") {
-			l.print();
+			list.print();
 		}
 		else if (command == "Print_reverse") {
-			l.print_reverse();
+			list.print_reverse();
 		}
-		else if (command == "Max") {
-			l.max();
+		else if (command == "Update") {
+			int x, y;
+			cin >> x >> y;
+			list.update(x, y);
 		}
 	}
 }
