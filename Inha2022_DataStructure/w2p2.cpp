@@ -8,9 +8,9 @@ struct node {
 	node* next;
 };
 
-class Sequence {
+class List {
 public:
-	Sequence() {
+	List() {
 		header = trailer = new node;
 		header->next = trailer;
 		trailer->prev = header;
@@ -109,7 +109,7 @@ int main() {
 	int m;
 	cin >> m;
 
-	Sequence l = Sequence();
+	List l = List();
 	for (int i = 0; i < m; i++) {
 		string command;
 		cin >> command;

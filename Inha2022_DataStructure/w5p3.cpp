@@ -10,9 +10,9 @@ struct node {
 
 node* p;
 
-class Sequence {
+class List {
 public:
-	Sequence() {
+	List() {
 		header = new node();
 		trailer = new node();
 		header->next = trailer;
@@ -104,7 +104,7 @@ private:
 };
 
 int main() {
-	Sequence list = Sequence();
+	List list = List();
 	list.begin();
 
 	int n;

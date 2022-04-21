@@ -7,9 +7,9 @@ struct node {
 	node* next;
 };
 
-class Sequence {
+class List {
 public:
-	Sequence() {
+	List() {
 		header = new node();
 		trailer = new node();
 		header->next = trailer;
@@ -70,7 +70,7 @@ private:
 };
 
 int main() {
-	Sequence list = Sequence();
+	List list = List();
 	node* p = list.begin();
 
 	list.insert(p, 4);
