@@ -43,6 +43,12 @@
     <Filter Include="소스 파일\models\Non-Linear Structure">
       <UniqueIdentifier>{3c8bc0fa-bdaa-4efd-a039-cece039fc46a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\week7">
+      <UniqueIdentifier>{f61aec89-1594-4946-8255-3619d3cdbc89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\examPractice">
+      <UniqueIdentifier>{12b2ab4f-151e-483d-92fb-dd483b8bc4a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w1ex1.cpp">
@@ -176,6 +182,60 @@
     </ClCompile>
     <ClCompile Include="SequenceArray.cpp">
       <Filter>소스 파일\models\Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="w7ex1.cpp">
+      <Filter>소스 파일\week7</Filter>
+    </ClCompile>
+    <ClCompile Include="w7p1.cpp">
+      <Filter>소스 파일\week7</Filter>
+    </ClCompile>
+    <ClCompile Include="w7p2.cpp">
+      <Filter>소스 파일\week7</Filter>
+    </ClCompile>
+    <ClCompile Include="exArray.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exSLinkedList.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exDLinkedList.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exStackArray.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exStackList.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exQueueArray.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exQueueList.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exVectorArray.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exVectorCalculArray.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exList.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exSequenceList.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exSequenceArray.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="exTree.cpp">
+      <Filter>소스 파일\examPractice</Filter>
+    </ClCompile>
+    <ClCompile Include="w7p3.cpp">
+      <Filter>소스 파일\week7</Filter>
+    </ClCompile>
+    <ClCompile Include="w7p4.cpp">
+      <Filter>소스 파일\week7</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
