@@ -1,22 +1,13 @@
-/* insert, erase, indexOf, atIndex´Â ´ú ±¸ÇöµÊ */
 #include <iostream>
 #include <string>
 using namespace std;
 
 typedef int type;
-struct node {
-	int index;
-	type data;
-	node(int index, type data) {
-		this->index = index;
-		this->data = data;
-	}
-};
 class Sequence {
 public:
 	Sequence(int N) {
 		this->N = N;
-		arr = new node*[N];
+		arr = new type[N];
 		f = r = 0;
 		n = 0;
 	}
@@ -26,53 +17,148 @@ public:
 	bool empty() {
 		return (n == 0);
 	}
-	node* begin() {
+	type begin() {
+		if (empty()) {
+			// SequenceEmpty
+			return NULL;
+		}
 		return arr[f];
 	}
-	node* end() {
+	type end() {
+		if (empty()) {
+			// SequenceEmpty
+			return NULL;
+		}
 		return arr[(r - 1 + N) % N];
 	}
-	void insert(node* pos, type data) {
-		if (size() == N) {
-			cout << "Full" << endl;
-			return; // QueueFull
+	void insert(int index, type data) {
+		if (n == N) {
+			// SequenceFull
+			return;
 		}
-		int curIndex = (r - 1 + N) % N;
-		for (int i = arr[(r - 1 + N) % N]->index; i >= pos->index; i--, curIndex--) {
-			arr[(curIndex + 1 + N) % N]->index++;
-			arr[(curIndex + 1 + N) % N] = arr[(curIndex + N) % N];
+		for (int i = n - 1; i >= index; i--) {
+			arr[(f + i + 1) % N] = arr[(f + i) % N];
 		}
-		arr[(curIndex + N) % N] = new node(pos->index, data);
+		arr[(f + index) % N] = data;
 		r = (r + 1) % N;
 		n++;
 	}
 	void insertFront(type data) {
-		if (size() == N) {
-			cout << "Full" << endl;
-			return; // QueueFull
+		if (n == N) {
+			// SequenceFull
+			return;
 		}
-		/* ---------------------------------------------------- */
+		f = (f - 1 + N) % N;
+		arr[f] = data;
+		n++;
 	}
 	void insertBack(type data) {
-		if (size() == N) {
-			cout << "Full" << endl;
-			return; // QueueFull
+		if (n == N) {
+			// SequenceFull
+			return;
 		}
-		arr[r] = new node(n - 1, data);
+		arr[r] = data;
 		r = (r + 1) % N;
 		n++;
 	}
-	/* ---------------------------------------------------- */
+	void erase(int index) {
+		if (empty()) {
+			// SequenceEmpty
+			return;
+		}
+		for (int i = index; i <= n - 1; i++) {
+			arr[(f + i) % N] = arr[(f + i + 1) % N];
+		}
+		r = (r - 1 + N) % N;
+		n--;
+	}
+	void eraseFront() {
+		if (empty()) {
+			// SequenceEmpty
+			return;
+		}
+		f = (f + 1) % N;
+		n--;
+	}
+	void eraseBack() {
+		if (empty()) {
+			// SequenceEmpty
+			return;
+		}
+		r = (r - 1 + N) % N;
+		n--;
+	}
+	int atIndex(int index) {
+		return ((f + index) % N);
+	}
+	int indexOf(int pos) {
+		return ((pos - f + N) % N);
+	}
+	void print() { // Check
+		for (int i = 0; i < n; i++) {
+			cout << arr[(f + i) % N] << " ";
+		}
+		cout << endl;
+	}
 private:
-	node** arr;
-	int N;
-	int n;
+	type* arr;
 	int f, r;
+	int n;
+	int N;
 };
 
 int main() {
-	int n, t;
-	cin >> n >> t;
-	cout << (-1 % 4);
-	Sequence queue = Sequence(n);
+	int n;
+	cin >> n;
+	Sequence sequence = Sequence(n);
+	while (true) {
+		string command;
+		cin >> command;
+		if (command == "size") {
+			cout << sequence.size() << endl;
+		}
+		else if (command == "empty") {
+			cout << sequence.empty() << endl;
+		}
+		else if (command == "begin") {
+			cout << sequence.begin() << endl;
+		}
+		else if (command == "end") {
+			cout << sequence.end() << endl;
+		}
+		else if (command == "insert") {
+			int x, y;
+			cin >> x >> y;
+			sequence.insert(x, y);
+		}
+		else if (command == "insertFront") {
+			int y;
+			cin >> y;
+			sequence.insertFront(y);
+		}
+		else if (command == "insertBack") {
+			int y;
+			cin >> y;
+			sequence.insertBack(y);
+		}
+		else if (command == "erase") {
+			int x;
+			cin >> x;
+			sequence.erase(x);
+		}
+		else if (command == "eraseFront") {
+			sequence.eraseFront();
+		}
+		else if (command == "eraseBack") {
+			sequence.eraseBack();
+		}
+		else if (command == "atIndex") {
+			int x;
+			cin >> x;
+			sequence.atIndex(x);
+		}
+		else if (command == "print") {
+			sequence.print();
+		}
+	}
 }

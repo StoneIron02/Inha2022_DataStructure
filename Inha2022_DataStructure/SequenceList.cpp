@@ -8,10 +8,11 @@ struct node {
 	node* prev;
 	node* next;
 };
+
 class Sequence {
 public:
 	Sequence() {
-		header = trailer = new node;
+		header = trailer = new node();
 		header->next = trailer;
 		trailer->prev = header;
 		n = 0;
@@ -32,13 +33,13 @@ public:
 		node* newNode = new node();
 		newNode->data = data;
 
+		node* prevNode = pos->prev;
 		node* nextNode = pos;
-		node* prevNode = nextNode->prev;
 
-		newNode->next = nextNode;
 		newNode->prev = prevNode;
-		nextNode->prev = newNode;
+		newNode->next = nextNode;
 		prevNode->next = newNode;
+		nextNode->prev = newNode;
 		n++;
 	}
 	void insertFront(type data) {
@@ -48,12 +49,11 @@ public:
 		insert(end(), data);
 	}
 	void erase(node* pos) {
-		node* nextNode = pos->next;
 		node* prevNode = pos->prev;
+		node* nextNode = pos->next;
 
-		nextNode->prev = prevNode;
 		prevNode->next = nextNode;
-		delete pos;
+		nextNode->prev = prevNode;
 		n--;
 	}
 	void eraseFront() {
@@ -63,6 +63,10 @@ public:
 		erase(end()->prev);
 	}
 	node* atIndex(int index) {
+		if (index < 0 || index >= n) {
+			// OutOfIndex
+			return NULL;
+		}
 		node* curNode = begin();
 		for (int i = 0; i < index; i++) {
 			curNode = curNode->next;
@@ -71,12 +75,20 @@ public:
 	}
 	int indexOf(node* pos) {
 		node* curNode = begin();
-		int i = 0;
-		while (curNode != pos) {
-			curNode = curNode->next;
-			i++;
+		for (int i = 0; i < n; i++) {
+			if (curNode == pos) {
+				return i;
+			}
 		}
-		return i;
+		return -1;
+	}
+	void print() { // Check
+		node* curNode = begin();
+		while (curNode != trailer) {
+			cout << curNode->data << " ";
+			curNode = curNode->next;
+		}
+		cout << endl;
 	}
 private:
 	node* header;
@@ -85,19 +97,55 @@ private:
 };
 
 int main() {
-	Sequence list = Sequence();
-	node* p = list.begin();
-
-	list.insert(p, 4);
-	cout << list.size() << "\n";
-
-	list.erase(p->prev);
-	p = list.begin();
-	cout << list.size() << "\n";
-
-	if (p != list.end())
-		p = p->next;
-
-	if (p != list.begin())
-		p = p->prev;
+	Sequence sequence = Sequence();
+	while (true) {
+		string command;
+		cin >> command;
+		if (command == "size") {
+			cout << sequence.size() << endl;
+		}
+		else if (command == "empty") {
+			cout << sequence.empty() << endl;
+		}
+		else if (command == "begin") {
+			cout << sequence.begin()->data << endl;
+		}
+		else if (command == "end") {
+			cout << sequence.end()->prev->data << endl;
+		}
+		else if (command == "insert") {
+			int x, y;
+			cin >> x >> y;
+			sequence.insert(sequence.atIndex(x), y);
+		}
+		else if (command == "insertFront") {
+			int y;
+			cin >> y;
+			sequence.insertFront(y);
+		}
+		else if (command == "insertBack") {
+			int y;
+			cin >> y;
+			sequence.insertBack(y);
+		}
+		else if (command == "erase") {
+			int x;
+			cin >> x;
+			sequence.erase(sequence.atIndex(x));
+		}
+		else if (command == "eraseFront") {
+			sequence.eraseFront();
+		}
+		else if (command == "eraseBack") {
+			sequence.eraseBack();
+		}
+		else if (command == "atIndex") {
+			int x;
+			cin >> x;
+			sequence.atIndex(x);
+		}
+		else if (command == "print") {
+			sequence.print();
+		}
+	}
 }

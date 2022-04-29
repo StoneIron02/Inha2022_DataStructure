@@ -34,23 +34,20 @@
     <Filter Include="소스 파일\models">
       <UniqueIdentifier>{c3bcbcaf-f523-41aa-9073-341a49462061}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\models\Implement">
-      <UniqueIdentifier>{18af8b2e-fed7-4130-b14c-0de4605320c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\models\Linear Structure">
-      <UniqueIdentifier>{eddc4b19-3884-4275-a0ec-c9a7e4744606}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\models\Non-Linear Structure">
-      <UniqueIdentifier>{3c8bc0fa-bdaa-4efd-a039-cece039fc46a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\week7">
       <UniqueIdentifier>{f61aec89-1594-4946-8255-3619d3cdbc89}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\examPractice">
-      <UniqueIdentifier>{12b2ab4f-151e-483d-92fb-dd483b8bc4a6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\week9">
       <UniqueIdentifier>{a72cb032-5799-419c-91cb-e84e74597b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\models\1. Implement">
+      <UniqueIdentifier>{18af8b2e-fed7-4130-b14c-0de4605320c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\models\2. Linear Structure">
+      <UniqueIdentifier>{eddc4b19-3884-4275-a0ec-c9a7e4744606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\models\3. Hierarchical Structure">
+      <UniqueIdentifier>{3c8bc0fa-bdaa-4efd-a039-cece039fc46a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -154,37 +151,37 @@
       <Filter>소스 파일\week6</Filter>
     </ClCompile>
     <ClCompile Include="Array.cpp">
-      <Filter>소스 파일\models\Implement</Filter>
+      <Filter>소스 파일\models\1. Implement</Filter>
     </ClCompile>
     <ClCompile Include="SLinkedList.cpp">
-      <Filter>소스 파일\models\Implement</Filter>
+      <Filter>소스 파일\models\1. Implement</Filter>
     </ClCompile>
     <ClCompile Include="DLinkedList.cpp">
-      <Filter>소스 파일\models\Implement</Filter>
+      <Filter>소스 파일\models\1. Implement</Filter>
     </ClCompile>
     <ClCompile Include="StackArray.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
     <ClCompile Include="StackList.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
     <ClCompile Include="QueueArray.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
     <ClCompile Include="QueueList.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+    <ClCompile Include="VectorArray.cpp">
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
     <ClCompile Include="List.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
     <ClCompile Include="SequenceList.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
     <ClCompile Include="SequenceArray.cpp">
-      <Filter>소스 파일\models\Linear Structure</Filter>
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
     </ClCompile>
     <ClCompile Include="w7ex1.cpp">
       <Filter>소스 파일\week7</Filter>
@@ -194,45 +191,6 @@
     </ClCompile>
     <ClCompile Include="w7p2.cpp">
       <Filter>소스 파일\week7</Filter>
-    </ClCompile>
-    <ClCompile Include="exArray.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exSLinkedList.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exDLinkedList.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exStackArray.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exStackList.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exQueueArray.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exQueueList.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exVectorArray.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exVectorCalculArray.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exList.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exSequenceList.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exSequenceArray.cpp">
-      <Filter>소스 파일\examPractice</Filter>
-    </ClCompile>
-    <ClCompile Include="exTree.cpp">
-      <Filter>소스 파일\examPractice</Filter>
     </ClCompile>
     <ClCompile Include="w7p3.cpp">
       <Filter>소스 파일\week7</Filter>
@@ -257,6 +215,12 @@
     </ClCompile>
     <ClCompile Include="w9p4.cpp">
       <Filter>소스 파일\week9</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorCalculArray.cpp">
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>소스 파일\models\3. Hierarchical Structure</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

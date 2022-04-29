@@ -2,8 +2,9 @@
 #include <string>
 using namespace std;
 
+typedef int type;
 struct node {
-	int data;
+	type data;
 	node* next;
 };
 
@@ -13,14 +14,16 @@ public:
 		head = tail = NULL;
 		n = 0;
 	}
+	int size() {
+		return n;
+	}
 	bool empty() {
 		return (n == 0);
 	}
-	void append(int data) {
-		node* newNode = new node;
+	void append(type data) {
+		node* newNode = new node();
 		newNode->data = data;
 		newNode->next = NULL;
-
 		if (empty()) {
 			head = tail = newNode;
 		}
@@ -29,26 +32,26 @@ public:
 			tail = newNode;
 		}
 		n++;
-		print();
 	}
-	void insert(int index, int data) {
+	void insert(int index, type data) {
 		if (index < 0 || index > n) {
-			cout << "Index Error\n";
+			// OutOfIndex
+			return;
 		}
 		else if (index == n) {
 			append(data);
 		}
 		else if (index == 0) {
-			node* newNode = new node;
+			node* newNode = new node();
 			newNode->data = data;
 			newNode->next = head;
 			head = newNode;
 			n++;
-			print();
 		}
 		else {
-			node* newNode = new node;
+			node* newNode = new node();
 			newNode->data = data;
+
 			node* curNode = head;
 			for (int i = 1; i < index; i++) {
 				curNode = curNode->next;
@@ -56,65 +59,47 @@ public:
 			newNode->next = curNode->next;
 			curNode->next = newNode;
 			n++;
-			print();
 		}
 	}
 	void remove(int index) {
-		if (empty() || index < 0 || index >= n) {
-			cout << "-1\n";
+		if (empty()) {
+			// ListEmpty
+			return;
 		}
-		else {
-			node* curNode = head;
-			if (index == 0) {
-				if (n == 1) {
-					head = tail = NULL;
-				}
-				else {
-					head = head->next;
-				}
+		if (index < 0 || index >= n) {
+			// OutOfIndex
+			return;
+		}
+		node* curNode = head;
+		if (index == 0) {
+			if (n == 1) {
+				head = tail = NULL;
 			}
 			else {
-				node* preNode = head;
-				for (int i = 0; i < index; i++) {
-					preNode = curNode;
-					curNode = curNode->next;
-				}
-				preNode->next = curNode->next;
-				if (curNode == tail) {
-					tail = preNode;
-				}
+				head = head->next;
 			}
-			cout << curNode->data << "\n";
-			delete curNode;
-			n--;
 		}
+		else {
+			node* prevNode = head;
+			for (int i = 0; i < index; i++) {
+				prevNode = curNode;
+				curNode = curNode->next;
+			}
+			prevNode->next = curNode->next;
+			if (curNode == tail) {
+				tail = prevNode;
+			}
+		}
+		delete curNode;
+		n--;
 	}
 	void print() {
-		if (empty()) {
-			cout << "empty\n";
+		node* curNode = head;
+		while (curNode != NULL) {
+			cout << curNode->data << " ";
+			curNode = curNode->next;
 		}
-		else {
-			node* curNode = head;
-			while (curNode != NULL) {
-				cout << curNode->data << " ";
-				curNode = curNode->next;
-			}
-			cout << "\n";
-		}
-	}
-	void min() {
-		if (empty()) {
-			cout << "empty\n";
-		}
-		else {
-			int min = head->data;
-			node* curNode = head;
-			while (curNode != NULL) {
-				curNode->data < min ? min = curNode->data : min = min;
-				curNode = curNode->next;
-			}
-			cout << min << "\n";
-		}
+		cout << endl;
 	}
 private:
 	node* head;
@@ -123,33 +108,33 @@ private:
 };
 
 int main() {
-	int m;
-	cin >> m;
-
 	SLinkedList list = SLinkedList();
-	for (int i = 0; i < m; i++) {
+	while (true) {
 		string command;
 		cin >> command;
-		if (command == "Append") {
+		if (command == "size") {
+			cout << list.size() << endl;
+		}
+		else if (command == "empty") {
+			cout << list.empty() << endl;
+		}
+		else if (command == "append") {
 			int x;
 			cin >> x;
 			list.append(x);
 		}
-		else if (command == "Delete") {
-			int i;
-			cin >> i;
-			list.remove(i);
+		else if (command == "insert") {
+			int x, y;
+			cin >> x >> y;
+			list.insert(x, y);
 		}
-		else if (command == "Print") {
+		else if (command == "remove") {
+			int x;
+			cin >> x;
+			list.remove(x);
+		}
+		else if (command == "print") {
 			list.print();
-		}
-		else if (command == "Insert") {
-			int i, x;
-			cin >> i >> x;
-			list.insert(i, x);
-		}
-		else if (command == "Min") {
-			list.min();
 		}
 	}
 }

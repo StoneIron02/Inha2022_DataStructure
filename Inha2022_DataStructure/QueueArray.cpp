@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-template <typename type>
+typedef int type;
 class Queue {
 public:
 	Queue(int N) {
@@ -17,85 +17,81 @@ public:
 	bool empty() {
 		return (n == 0);
 	}
-	const type& front() {
-		if (empty())
-			return NULL; // QueueEmpty
+	type front() {
+		if (empty()) {
+			// QueueEmpty
+			return NULL;
+		}
 		return arr[f];
 	}
-	const type& rear() {
-		if (empty())
-			return NULL; // QueueEmpty
+	type rear() {
+		if (empty()) {
+			// QueueEmpty
+			return NULL;
+		}
 		return arr[(r - 1 + N) % N];
 	}
-	void enqueue(const type& data) {
-		if (size() == N) {
-			cout << "Full" << endl;
-			return; // QueueFull
+	void enqueue(type data) {
+		if (n == N) {
+			// QueueFull
+			return;
 		}
 		arr[r] = data;
 		r = (r + 1) % N;
 		n++;
 	}
-	const type& dequeue() {
-		if (empty())
-			return NULL; // QueueEmpty
-		int data = arr[f];
+	type dequeue() {
+		if (empty()) {
+			// QueueEmpty
+			return NULL;
+		}
+		type data = arr[f];
 		f = (f + 1) % N;
 		n--;
 		return data;
 	}
+	void print() { // Check
+		for (int i = 0; i < n; i++) {
+			cout << arr[(f + i) % N] << " ";
+		}
+		cout << endl;
+	}
 private:
 	type* arr;
-	int N;
-	int n;
 	int f, r;
+	int n;
+	int N;
 };
 
 int main() {
-	int n, t;
-	cin >> n >> t;
-	Queue<int> queue = Queue<int>(n);
-	for (int i = 0; i < t; i++) {
+	int n;
+	cin >> n;
+	Queue queue = Queue(n);
+	while (true) {
 		string command;
 		cin >> command;
-		if (command == "isEmpty") {
-			switch (queue.empty()) {
-			case true:
-				cout << "True\n";
-				break;
-			case false:
-				cout << "False\n";
-				break;
-			}
+		if (command == "size") {
+			cout << queue.size() << endl;
 		}
-		else if (command == "size") {
-			cout << queue.size() << "\n";
-		}
-		else if (command == "dequeue") {
-			int data = queue.dequeue();
-			if (data == NULL)
-				cout << "Empty" << endl;
-			else
-				cout << data << endl;
-		}
-		else if (command == "enqueue") {
-			int data;
-			cin >> data;
-			queue.enqueue(data);
+		else if (command == "empty") {
+			cout << queue.empty() << endl;
 		}
 		else if (command == "front") {
-			int data = queue.front();
-			if (data == NULL)
-				cout << "Empty" << endl;
-			else
-				cout << data << endl;
+			cout << queue.front() << endl;
 		}
 		else if (command == "rear") {
-			int data = queue.rear();
-			if (data == NULL)
-				cout << "Empty" << endl;
-			else
-				cout << data << endl;
+			cout << queue.rear() << endl;
+		}
+		else if (command == "enqueue") {
+			int x;
+			cin >> x;
+			queue.enqueue(x);
+		}
+		else if (command == "dequeue") {
+			cout << queue.dequeue() << endl;
+		}
+		else if (command == "print") {
+			queue.print();
 		}
 	}
 }

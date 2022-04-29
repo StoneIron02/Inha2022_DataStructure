@@ -7,6 +7,7 @@ struct node {
 	type data;
 	node* next;
 };
+
 class Stack {
 public:
 	Stack() {
@@ -19,16 +20,18 @@ public:
 	bool empty() {
 		return (n == 0);
 	}
-	void push(const type& data) {
-		node* newNode = new node;
+	void push(type data) {
+		node* newNode = new node();
 		newNode->data = data;
 		newNode->next = head;
 		head = newNode;
 		n++;
 	}
-	const type& pop() {
-		if (empty())
-			return NULL; // StackEmpty
+	type pop() {
+		if (empty()) {
+			// StackEmpty
+			return NULL;
+		}
 		node* curNode = head;
 		head = curNode->next;
 		type data = curNode->data;
@@ -36,10 +39,20 @@ public:
 		n--;
 		return data;
 	}
-	const type& top() {
-		if (empty())
-			return NULL; // StackEmpty
+	type top() {
+		if (empty()) {
+			// StackEmpty
+			return NULL;
+		}
 		return head->data;
+	}
+	void print() { // Check
+		node* curNode = head;
+		while (curNode != NULL) {
+			cout << curNode->data << " ";
+			curNode = curNode->next;
+		}
+		cout << endl;
 	}
 private:
 	node* head;
@@ -47,17 +60,15 @@ private:
 };
 
 int main() {
-	int n;
-	cin >> n;
 	Stack stack = Stack();
-	for (int i = 0; i < n; i++) {
+	while (true) {
 		string command;
 		cin >> command;
 		if (command == "size") {
 			cout << stack.size() << endl;
 		}
 		else if (command == "empty") {
-			cout << int(stack.empty()) << endl;
+			cout << stack.empty() << endl;
 		}
 		else if (command == "push") {
 			int x;
@@ -65,16 +76,13 @@ int main() {
 			stack.push(x);
 		}
 		else if (command == "pop") {
-			int pop = stack.pop();
-			if (pop == NULL)
-				pop = -1;
-			cout << pop << endl;
+			cout << stack.pop() << endl;
 		}
 		else if (command == "top") {
-			int top = stack.top();
-			if (top == NULL)
-				top = -1;
-			cout << top << endl;
+			cout << stack.top() << endl;
+		}
+		else if (command == "print") {
+			stack.print();
 		}
 	}
 }

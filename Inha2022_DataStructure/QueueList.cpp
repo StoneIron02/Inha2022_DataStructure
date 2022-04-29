@@ -7,10 +7,11 @@ struct node {
 	type data;
 	node* next;
 };
+
 class Queue {
 public:
 	Queue() {
-		f = r = NULL;
+		head = tail = NULL;
 		n = 0;
 	}
 	int size() {
@@ -19,95 +20,90 @@ public:
 	bool empty() {
 		return (n == 0);
 	}
-	const type& front() {
-		if (empty())
-			return NULL; // QueueEmpty
-		return f->data;
-	}
-	const type& rear() {
-		if (empty())
-			return NULL; // QueueEmpty
-		return r->data;
-	}
-	void enqueue(const type& data) {
-		node* newNode = new node;
-		newNode->data = data;
-		newNode->next = NULL;
+	type front() {
 		if (empty()) {
-			f = r = newNode;
+			// QueueEmpty
+			return NULL;
+		}
+		return head->data;
+	}
+	type rear() {
+		if (empty()) {
+			// QueueEmpty
+			return NULL;
+		}
+		return tail->data;
+	}
+	void enqueue(type data) {
+		node* newNode = new node();
+		newNode->data = data;
+		if (empty()) {
+			head = tail = newNode;
 		}
 		else {
-			r->next = newNode;
-			r = newNode;
+			tail->next = newNode;
+			tail = newNode;
 		}
 		n++;
 	}
-	const type& dequeue() {
-		if (empty())
-			return NULL; // QueueEmpty
-		node* curNode = f;
+	type dequeue() {
+		if (empty()) {
+			// QueueEmpty
+			return NULL;
+		}
+		node* curNode = head;
 		if (n == 1) {
-			f = r = NULL;
+			head = tail = NULL;
 		}
 		else {
-			f = curNode->next;
+			head = head->next;
 		}
 		type data = curNode->data;
 		delete curNode;
 		n--;
 		return data;
 	}
+	void print() { // Check
+		node* curNode = head;
+		while (curNode != NULL) {
+			cout << curNode->data << " ";
+			curNode = curNode->next;
+		}
+		cout << endl;
+	}
 private:
-	node* f;
-	node* r;
+	node* head;
+	node* tail;
 	int n;
 };
 
 int main() {
-	int t;
-	cin >> t;
 	Queue queue = Queue();
-	for (int i = 0; i < t; i++) {
+	while (true) {
 		string command;
 		cin >> command;
-		if (command == "isEmpty") {
-			switch (queue.empty()) {
-			case true:
-				cout << "True\n";
-				break;
-			case false:
-				cout << "False\n";
-				break;
-			}
+		if (command == "size") {
+			cout << queue.size() << endl;
 		}
-		else if (command == "size") {
-			cout << queue.size() << "\n";
-		}
-		else if (command == "dequeue") {
-			int data = queue.dequeue();
-			if (data == NULL)
-				cout << "Empty" << endl;
-			else
-				cout << data << endl;
-		}
-		else if (command == "enqueue") {
-			int data;
-			cin >> data;
-			queue.enqueue(data);
+		else if (command == "empty") {
+			cout << queue.empty() << endl;
 		}
 		else if (command == "front") {
-			int data = queue.front();
-			if (data == NULL)
-				cout << "Empty" << endl;
-			else
-				cout << data << endl;
+			cout << queue.front() << endl;
 		}
 		else if (command == "rear") {
-			int data = queue.rear();
-			if (data == NULL)
-				cout << "Empty" << endl;
-			else
-				cout << data << endl;
+			cout << queue.rear() << endl;
+		}
+		else if (command == "enqueue") {
+			int x;
+			cin >> x;
+			queue.enqueue(x);
+		}
+		else if (command == "dequeue") {
+			cout << queue.dequeue() << endl;
+		}
+		else if (command == "print") {
+			queue.print();
 		}
 	}
 }

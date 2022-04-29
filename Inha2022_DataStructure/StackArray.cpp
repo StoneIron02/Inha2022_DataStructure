@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-template <typename type>
+typedef int type;
 class Stack {
 public:
 	Stack(int N) {
@@ -11,44 +11,56 @@ public:
 		t = -1;
 	}
 	int size() {
-		return t + 1;
+		return (t + 1);
 	}
 	bool empty() {
 		return (t < 0);
 	}
-	void push(const type& data) {
-		if (size() == N)
-			return; // StackFull
+	void push(type data) {
+		if (size() == N) {
+			// StackFull
+			return;
+		}
 		arr[++t] = data;
 	}
-	const type& pop() {
-		if (empty())
-			return NULL; // StackEmpty
+	type pop() {
+		if (empty()) {
+			// StackEmpty
+			return NULL;
+		}
 		return arr[t--];
 	}
-	const type& top() {
-		if (empty())
-			return NULL; // StackEmpty
+	type top() {
+		if (empty()) {
+			// StackEmpty
+			return NULL;
+		}
 		return arr[t];
+	}
+	void print() { // Check
+		for (int i = 0; i <= t; i++) {
+			cout << arr[i] << " ";
+		}
+		cout << endl;
 	}
 private:
 	type* arr;
-	int N;
 	int t;
+	int N;
 };
 
 int main() {
-	int t, n;
-	cin >> t >> n;
-	Stack<int> stack = Stack<int>(t);
-	for (int i = 0; i < n; i++) {
+	int n;
+	cin >> n;
+	Stack stack = Stack(n);
+	while (true) {
 		string command;
 		cin >> command;
 		if (command == "size") {
 			cout << stack.size() << endl;
 		}
 		else if (command == "empty") {
-			cout << int(stack.empty()) << endl;
+			cout << stack.empty() << endl;
 		}
 		else if (command == "push") {
 			int x;
@@ -56,16 +68,13 @@ int main() {
 			stack.push(x);
 		}
 		else if (command == "pop") {
-			int pop = stack.pop();
-			if (pop == NULL)
-				pop = -1;
-			cout << pop << endl;
+			cout << stack.pop() << endl;
 		}
 		else if (command == "top") {
-			int top = stack.top();
-			if (top == NULL)
-				top = -1;
-			cout << top << endl;
+			cout << stack.top() << endl;
+		}
+		else if (command == "print") {
+			stack.print();
 		}
 	}
 }

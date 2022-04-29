@@ -8,10 +8,11 @@ struct node {
 	node* prev;
 	node* next;
 };
+
 class List {
 public:
 	List() {
-		header = trailer = new node;
+		header = trailer = new node();
 		header->next = trailer;
 		trailer->prev = header;
 		n = 0;
@@ -32,8 +33,8 @@ public:
 		node* newNode = new node();
 		newNode->data = data;
 
+		node* prevNode = pos->prev;
 		node* nextNode = pos;
-		node* prevNode = nextNode->prev;
 
 		newNode->next = nextNode;
 		newNode->prev = prevNode;
@@ -41,18 +42,18 @@ public:
 		prevNode->next = newNode;
 		n++;
 	}
-	void insertFront(int data) {
+	void insertFront(type data) {
 		insert(begin(), data);
 	}
-	void insertBack(int data) {
+	void insertBack(type data) {
 		insert(end(), data);
 	}
 	void erase(node* pos) {
-		node* nextNode = pos->next;
 		node* prevNode = pos->prev;
+		node* nextNode = pos->next;
 
-		nextNode->prev = prevNode;
 		prevNode->next = nextNode;
+		nextNode->prev = prevNode;
 		delete pos;
 		n--;
 	}

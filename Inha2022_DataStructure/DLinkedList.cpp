@@ -2,8 +2,9 @@
 #include <string>
 using namespace std;
 
+typedef int type;
 struct node {
-	int data;
+	type data;
 	node* prev;
 	node* next;
 };
@@ -11,93 +12,59 @@ struct node {
 class DLinkedList {
 public:
 	DLinkedList() {
-		header = trailer = new node;
+		header = trailer = new node();
 		header->next = trailer;
 		trailer->prev = header;
 		n = 0;
 	}
+	int size() {
+		return n;
+	}
 	bool empty() {
 		return (n == 0);
 	}
-	void append(int data) {
-		node* newNode = new node;
+	void insert(int index, type data) {
+		if (index < 0 || index > n) {
+			// OutOfIndex
+			return;
+		}
+		node* newNode = new node();
 		newNode->data = data;
-
-		node* curNode = trailer->prev;
-		newNode->prev = curNode;
-		newNode->next = trailer;
-		curNode->next = newNode;
-		trailer->prev = newNode;
+		node* curNode = header->next;
+		for (int i = 0; i < index; i++) {
+			curNode = curNode->next;
+		}
+		node* prevNode = curNode->prev;
+		node* nextNode = curNode;
+		newNode->prev = prevNode;
+		newNode->next = nextNode;
+		prevNode->next = newNode;
+		nextNode->prev = newNode;
 		n++;
-		print();
 	}
-	int remove(int index) {
-		if (empty() || index < 0 || index >= n) {
-			return -1;
+	void remove(int index) {
+		if (index < 0 || index >= n) {
+			// OutOfIndex
+			return;
 		}
-		else {
-			node* curNode = header->next;
-			for (int i = 0; i < index; i++) {
-				curNode = curNode->next;
-			}
-			node* preNode = curNode->prev;
-			node* nextNode = curNode->next;
-
-			preNode->next = nextNode;
-			nextNode->prev = preNode;
-			int data = curNode->data;
-			delete curNode;
-			n--;
-			return data;
+		node* curNode = header->next;
+		for (int i = 0; i < index; i++) {
+			curNode = curNode->next;
 		}
+		node* prevNode = curNode->prev;
+		node* nextNode = curNode->next;
+		prevNode->next = nextNode;
+		nextNode->prev = prevNode;
+		delete curNode;
+		n--;
 	}
 	void print() {
-		if (empty()) {
-			cout << "empty\n";
+		node* curNode = header->next;
+		while (curNode != trailer) {
+			cout << curNode->data << " ";
+			curNode = curNode->next;
 		}
-		else {
-			node* curNode = header->next;
-			while (curNode != trailer) {
-				cout << curNode->data << " ";
-				curNode = curNode->next;
-			}
-			cout << "\n";
-		}
-	}
-	void print_reverse() {
-		if (empty()) {
-			cout << "empty\n";
-		}
-		else {
-			node* curNode = trailer->prev;
-			while (curNode != header) {
-				cout << curNode->data << " ";
-				curNode = curNode->prev;
-			}
-			cout << "\n";
-		}
-	}
-	void update(int x, int y) {
-		if (empty()) {
-			cout << "empty\n";
-		}
-		else {
-			node* curNode = header->next;
-			bool found = false;
-			while (curNode != trailer) {
-				if (curNode->data == x) {
-					curNode->data = y;
-					found = true;
-				}
-				curNode = curNode->next;
-			}
-			if (found) {
-				print();
-			}
-			else {
-				cout << "Not found\n";
-			}
-		}
+		cout << endl;
 	}
 private:
 	node* header;
@@ -106,33 +73,28 @@ private:
 };
 
 int main() {
-	int m;
-	cin >> m;
-
 	DLinkedList list = DLinkedList();
-	for (int i = 0; i < m; i++) {
+	while (true) {
 		string command;
 		cin >> command;
-		if (command == "Append") {
-			int x;
-			cin >> x;
-			list.append(x);
+		if (command == "size") {
+			cout << list.size() << endl;
 		}
-		else if (command == "Delete") {
-			int i;
-			cin >> i;
-			cout << list.remove(i) << "\n";
+		else if (command == "empty") {
+			cout << list.empty() << endl;
 		}
-		else if (command == "Print") {
-			list.print();
-		}
-		else if (command == "Print_reverse") {
-			list.print_reverse();
-		}
-		else if (command == "Update") {
+		else if (command == "insert") {
 			int x, y;
 			cin >> x >> y;
-			list.update(x, y);
+			list.insert(x, y);
+		}
+		else if (command == "remove") {
+			int x;
+			cin >> x;
+			list.remove(x);
+		}
+		else if (command == "print") {
+			list.print();
 		}
 	}
 }
