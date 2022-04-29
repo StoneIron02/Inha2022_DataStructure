@@ -49,6 +49,9 @@
     <Filter Include="소스 파일\examPractice">
       <UniqueIdentifier>{12b2ab4f-151e-483d-92fb-dd483b8bc4a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\week9">
+      <UniqueIdentifier>{a72cb032-5799-419c-91cb-e84e74597b52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w1ex1.cpp">
@@ -236,6 +239,24 @@
     </ClCompile>
     <ClCompile Include="w7p4.cpp">
       <Filter>소스 파일\week7</Filter>
+    </ClCompile>
+    <ClCompile Include="w9ex1.cpp">
+      <Filter>소스 파일\week9</Filter>
+    </ClCompile>
+    <ClCompile Include="w9ex2.cpp">
+      <Filter>소스 파일\week9</Filter>
+    </ClCompile>
+    <ClCompile Include="w9p1.cpp">
+      <Filter>소스 파일\week9</Filter>
+    </ClCompile>
+    <ClCompile Include="w9p2.cpp">
+      <Filter>소스 파일\week9</Filter>
+    </ClCompile>
+    <ClCompile Include="w9p3.cpp">
+      <Filter>소스 파일\week9</Filter>
+    </ClCompile>
+    <ClCompile Include="w9p4.cpp">
+      <Filter>소스 파일\week9</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
