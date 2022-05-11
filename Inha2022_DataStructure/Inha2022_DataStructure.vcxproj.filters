@@ -49,6 +49,9 @@
     <Filter Include="소스 파일\models\3. Hierarchical Structure">
       <UniqueIdentifier>{3c8bc0fa-bdaa-4efd-a039-cece039fc46a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\week10">
+      <UniqueIdentifier>{8b4a0a85-a729-4956-a257-09b1f2d6a953}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w1ex1.cpp">
@@ -221,6 +224,27 @@
     </ClCompile>
     <ClCompile Include="Tree.cpp">
       <Filter>소스 파일\models\3. Hierarchical Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="w10ex1.cpp">
+      <Filter>소스 파일\week10</Filter>
+    </ClCompile>
+    <ClCompile Include="w10ex2.cpp">
+      <Filter>소스 파일\week10</Filter>
+    </ClCompile>
+    <ClCompile Include="w10ex3.cpp">
+      <Filter>소스 파일\week10</Filter>
+    </ClCompile>
+    <ClCompile Include="w10p1.cpp">
+      <Filter>소스 파일\week10</Filter>
+    </ClCompile>
+    <ClCompile Include="w10p2.cpp">
+      <Filter>소스 파일\week10</Filter>
+    </ClCompile>
+    <ClCompile Include="w10p3.cpp">
+      <Filter>소스 파일\week10</Filter>
+    </ClCompile>
+    <ClCompile Include="w10p4.cpp">
+      <Filter>소스 파일\week10</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
