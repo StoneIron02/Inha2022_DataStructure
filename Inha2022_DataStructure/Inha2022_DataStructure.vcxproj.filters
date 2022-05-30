@@ -58,6 +58,9 @@
     <Filter Include="소스 파일\week12">
       <UniqueIdentifier>{033e0374-e9fb-4cf5-9f20-a329e36c3a0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\week13">
+      <UniqueIdentifier>{5117b419-a681-433e-b269-3b40def997cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w1ex1.cpp">
@@ -284,6 +287,21 @@
     </ClCompile>
     <ClCompile Include="w12p4.cpp">
       <Filter>소스 파일\week12</Filter>
+    </ClCompile>
+    <ClCompile Include="w13ex1.cpp">
+      <Filter>소스 파일\week13</Filter>
+    </ClCompile>
+    <ClCompile Include="w13p1.cpp">
+      <Filter>소스 파일\week13</Filter>
+    </ClCompile>
+    <ClCompile Include="w13p2.cpp">
+      <Filter>소스 파일\week13</Filter>
+    </ClCompile>
+    <ClCompile Include="w13p3.cpp">
+      <Filter>소스 파일\week13</Filter>
+    </ClCompile>
+    <ClCompile Include="w13p4.cpp">
+      <Filter>소스 파일\week13</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
