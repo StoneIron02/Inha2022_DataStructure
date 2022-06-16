@@ -61,6 +61,12 @@
     <Filter Include="소스 파일\week13">
       <UniqueIdentifier>{5117b419-a681-433e-b269-3b40def997cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\week14">
+      <UniqueIdentifier>{f106ca59-d565-41e0-9242-9f1f986ff983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\final_exam">
+      <UniqueIdentifier>{2dff3c55-70af-441b-a53e-6afef26c10ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w1ex1.cpp">
@@ -302,6 +308,123 @@
     </ClCompile>
     <ClCompile Include="w13p4.cpp">
       <Filter>소스 파일\week13</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable_Linear.cpp">
+      <Filter>소스 파일\models\1. Implement</Filter>
+    </ClCompile>
+    <ClCompile Include="PriorityQueue_SequenceUnsorted.cpp">
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="PriorityQueue_Heap.cpp">
+      <Filter>소스 파일\models\3. Hierarchical Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="BinarySearchTree.cpp">
+      <Filter>소스 파일\models\3. Hierarchical Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable_Double.cpp">
+      <Filter>소스 파일\models\1. Implement</Filter>
+    </ClCompile>
+    <ClCompile Include="PriorityQueue_SequenceSorted.cpp">
+      <Filter>소스 파일\models\2. Linear Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>소스 파일\models\3. Hierarchical Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="w14ex1.cpp">
+      <Filter>소스 파일\week14</Filter>
+    </ClCompile>
+    <ClCompile Include="w14ex2.cpp">
+      <Filter>소스 파일\week14</Filter>
+    </ClCompile>
+    <ClCompile Include="w14p1.cpp">
+      <Filter>소스 파일\week14</Filter>
+    </ClCompile>
+    <ClCompile Include="w14p2.cpp">
+      <Filter>소스 파일\week14</Filter>
+    </ClCompile>
+    <ClCompile Include="AVL_TREE_COPY.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="w9_p1.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w9_p3.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w9_p2.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w9_p4.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w10_p1.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w10_p3.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w10_p2.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w10_p4.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w11_p1.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w11_p3.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w11_p2.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w11_p4.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w12_p1.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w12_p3.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w12_p2.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w12_p4.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w13_p1.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w13_p3.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w14_p1.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w14p4.cpp">
+      <Filter>소스 파일\week14</Filter>
+    </ClCompile>
+    <ClCompile Include="w14p3.cpp">
+      <Filter>소스 파일\week14</Filter>
+    </ClCompile>
+    <ClCompile Include="w13_p2.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w13_p4.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w14_p3.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w14_p2.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="w14_p4.cpp">
+      <Filter>소스 파일\final_exam</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph_AdjacencyList.cpp">
+      <Filter>소스 파일\models\3. Hierarchical Structure</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
